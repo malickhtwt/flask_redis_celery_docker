@@ -4,3 +4,6 @@ redis
 flask_caching 
 requests
 celery
+pytest
+pytest-cov
+flake8

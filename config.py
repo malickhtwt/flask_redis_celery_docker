@@ -1,5 +1,8 @@
 import os
 
+DEBUG = True
+SERVER_NAME = 'localhost:5000'
+
 #class BaseConfig(object):
 CACHE_TYPE = os.environ['CACHE_TYPE']
 CACHE_REDIS_HOST = os.environ['CACHE_REDIS_HOST']

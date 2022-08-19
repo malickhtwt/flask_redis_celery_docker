@@ -6,12 +6,16 @@ services:
     entrypoint: python app.py
     env_file:
       - .env
+    volumes:
+      - .:/flask_redis_celery_docker
     ports:
       - '5000:5000'
 
   redis:
     image: redis
     container_name: redis-container
+    volumes:
+      - 'redis:/var/lib/redis/data'
     ports:
       - "6379:6379"
 
@@ -19,5 +23,10 @@ services:
     container_name: celery-container
     build: .
     command: celery --app app.celery worker --loglevel=info
-    #env_file:
-     #- .env
+    env_file:
+     - .env
+    volumes:
+      - .:/flask_redis_celery_docker
+
+volumes:
+  redis:
