@@ -1,4 +1,4 @@
-FROM 3.7.5-slim-buster
+FROM python:3.7.5-slim-buster
 
 #--no-install-recommend removes unwanted packages when downloading dependencies to free up disk space
 RUN apt-get update && apt-get install -qq -y \
