@@ -13,5 +13,7 @@ COPY requirements.txt /flask_redis_celery_docker
 # Install the dependencies in the docker image
 RUN pip3 install -r requirements.txt --no-cache-dir
 
+RUN py.test --cov-report xml --cov ../flask_redis_celery_docker -v
+
 # Copy everything from the current dir to the image
 COPY . .
