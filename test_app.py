@@ -1,5 +1,5 @@
 import pytest
-from flask import Flask, url_for
+from app import app
 from redis import Redis
 
 class TestPage(object):
@@ -12,16 +12,14 @@ class TestPage(object):
 		assert hasattr(x,"check")
 
 	def test_universities(self):
-		app = Flask(__name__)
 		client = app.test_client()
 		ctx = app.app_context()
 		ctx.push()
-		url = '/universities'
+		url = '/universities?country=Germany'
 		response = client.get(url)
-		assert response.status_code == 404
+		assert response.status_code == 200
 
 	def test_redis(self):
 		redis = Redis(host='redis', port='6379')
-		#redis.set('mykey', 'hello from python')
 		value = redis.get('mykey')
 		assert value == b'hello from python'
