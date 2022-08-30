@@ -14,8 +14,8 @@ COPY requirements.txt /flask_redis_celery_docker
 RUN pip3 install -r requirements.txt --no-cache-dir
 
 #RUN py.test --cov-report xml --cov ../flask_redis_celery_docker -v
-RUN coverage run -m pytest -v
-RUN coverage xml -i
+#RUN coverage run -m pytest -v
+#RUN coverage xml -i
 
 # Copy everything from the current dir to the image
 COPY . .
