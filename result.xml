@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite errors="0" failures="2" hostname="1eb806d84db8" name="pytest" skipped="0" tests="4" time="2.684" timestamp="2022-08-31T17:26:21.438743"><testcase classname="test_app.TestPage" name="test_one" time="0.004" /><testcase classname="test_app.TestPage" name="test_two" time="0.003"><failure message="AssertionError: assert False&#10; +  where False = hasattr('hello', 'check')">self = &lt;test_app.TestPage object at 0x7f601e8895d0&gt;
+
+    def test_two(self):
+    	x = "hello"
+&gt;   	assert hasattr(x,"check")
+E    AssertionError: assert False
+E     +  where False = hasattr('hello', 'check')
+
+test_app.py:12: AssertionError</failure></testcase><testcase classname="test_app.TestPage" name="test_universities" time="0.464" /><testcase classname="test_app.TestPage" name="test_redis" time="0.008"><failure message="AssertionError: assert None == b'hello from python'">self = &lt;test_app.TestPage object at 0x7f601e889910&gt;
+
+    def test_redis(self):
+    	redis = Redis(host='redis', port='6379')
+    	value = redis.get('mykey')
+&gt;   	assert value == b'hello from python'
+E    AssertionError: assert None == b'hello from python'
+
+test_app.py:25: AssertionError</failure></testcase></testsuite></testsuites>
